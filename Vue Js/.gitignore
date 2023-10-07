@@ -1,0 +1,32 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore the build output directory (if applicable)
+dist/
+
+# Ignore any local development files or directories
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore any logs or debugging files
+logs/
+*.log
+
+# Ignore any operating system or editor-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.history/
+.cache/
+.settings/
+.project
+.classpath
+.metadata
+.npmrc
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
