@@ -52,7 +52,7 @@ function App() {
     <div className="flex bg-light-white">
       <div
         className={`${
-          open ? "w-72" : "w-20"
+          open ? "w-72" : "w-32"
         } bg-dark-purple h-screen p-5 pt-8 relative duration-300`}
       >
         <img
@@ -89,7 +89,7 @@ function App() {
                 src={`/image/${menu.src}.png`}
                 // src="/image/Calendar.png"
                 alt={`${menu.title} logo`}
-                className="origin-right"
+                className={`origin-right ${open ? "w-10 h-10" : "w-8 h-8"}`}
               />
               <span
                 className={`origin-right duration-200 ${open ? "" : "hidden"}`}
