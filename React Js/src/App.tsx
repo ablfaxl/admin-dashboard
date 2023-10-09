@@ -2,6 +2,8 @@ import { useState } from "react";
 
 function App() {
   const [open, setOpen] = useState(true);
+  // const [hover, setHover] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
 
   const menus = [
     {
@@ -80,17 +82,32 @@ function App() {
         <ul className="pt-6">
           {menus.map((menu, index) => (
             <li
-              key={index}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 nav ${
+              key={menu.id}
+              className={`flex rounded-md p-2 cursor-pointer text-gray-300 text-sm items-center gap-x-4 nav ${
                 menu.gap ? "mt-9" : "mt-2"
-              } ${index === 1 ? "bg-light-white" : ""}`}
+              } ${open ? "hover:bg-light-white" : "h-10 w-10 rounded-full"} ${
+                index === 1 ? "bg-light-white" : ""
+              }`}
+              onMouseOver={() => setHoveredMenu(index)}
+              onMouseLeave={() => setHoveredMenu(null)}
             >
               <img
                 src={`/image/${menu.src}.png`}
                 // src="/image/Calendar.png"
                 alt={`${menu.title} logo`}
-                className={`origin-right ${open ? "w-10 h-10" : "w-8 h-8"}`}
+                className={`flex justify-center items-center origin-right transition-all duration-500 ${
+                  open ? "w-10 h-10" : "w-5 h-5"
+                }`}
               />
+              {hoveredMenu === index && !open ? (
+                <span
+                  className={`text-xs whitespace-nowrap font-bold text-gray-400`}
+                >
+                  {menu.title}
+                </span>
+              ) : (
+                ""
+              )}
               <span
                 className={`origin-right duration-200 ${open ? "" : "hidden"}`}
               >
