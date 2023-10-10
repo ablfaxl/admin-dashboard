@@ -1,8 +1,10 @@
 import { useState } from "react";
+import Table from "./components/Table";
+import tableData from "./data/tableData";
 
 function App() {
   const [open, setOpen] = useState(true);
-  // const [hover, setHover] = useState(false);
+
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
 
   const menus = [
@@ -83,11 +85,11 @@ function App() {
           {menus.map((menu, index) => (
             <li
               key={menu.id}
-              className={`flex rounded-md p-2 cursor-pointer text-gray-300 text-sm items-center gap-x-4 nav ${
+              className={`flex rounded-md p-2 cursor-pointer text-gray-300 text-sm items-center gap-x-4 ${
                 menu.gap ? "mt-9" : "mt-2"
-              } ${open ? "hover:bg-light-white" : "h-10 w-10 rounded-full"} ${
-                index === 1 ? "bg-light-white" : ""
-              }`}
+              } ${
+                open ? "hover:bg-light-white nav" : "h-10 w-10 rounded-full"
+              } ${index === 1 ? "bg-light-white" : ""}`}
               onMouseOver={() => setHoveredMenu(index)}
               onMouseLeave={() => setHoveredMenu(null)}
             >
@@ -117,9 +119,9 @@ function App() {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold">صفحه اصلی</h1>
+      <div className="h-screen flex-1 container mx-auto p-4">
         {/* Render your React Router Dom components here | Outlet  */}
+        <Table data={tableData} />
       </div>
     </div>
   );
