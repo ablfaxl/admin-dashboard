@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: Shabnam;
+  src: url('/fonts/Shabnam.ttf');
+}
+
 body {
-    font-family: Modam;
+    font-family: Shabnam;
 }
 
 @layer utilities {
